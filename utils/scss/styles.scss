@@ -1,0 +1,77 @@
+$primary-color: #ffe92e;
+$secodary-color: black;
+$terciary-color: white;
+$fond-color: #aaa;
+
+$box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+
+$limit: 10;
+$unit: 8px;
+
+@function size($value) {
+  @return $value * $unit;
+}
+@mixin reset-pm {
+  margin: 0;
+  padding: 0;
+}
+@mixin btn($bgc, $color, $bold) {
+  background-color: $bgc;
+  color: $color;
+  border-radius: 5rem;
+  padding: 2rem 0.3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @if($bold == 'yes'){
+    font-weight: bolder;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  @include reset-pm();
+}
+body {
+  background-color: $primary-color;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  color: $secodary-color;
+  text-decoration: none;
+}
+h2 {
+  font-weight: bolder;
+  font-size: size(6);
+}
+h3 {
+  font-weight: lighter;
+  font-size: size(3);
+}
+img{
+    width: 100%;
+}
+.container {
+  background-color: white;
+  margin: 10rem;
+  width: 1228px;
+  padding: 5rem;
+  box-shadow: 0 0 2rem 0.2rem rgba(0, 0, 0, 0.1);
+
+  background-image: url();
+  background-size: 100% 100%;
+}
+ul {
+  @include reset-pm();
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+
+  li {
+    a {
+      @include btn($primary-color,$secodary-color ,'yes' );
+    }
+  }
+}
