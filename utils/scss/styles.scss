@@ -1,34 +1,6 @@
-$primary-color: #ffe92e;
-$secodary-color: black;
-$terciary-color: white;
-$fond-color: #aaa;
-
-$box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
-
-$limit: 10;
-$unit: 8px;
-
-@function size($value) {
-  @return $value * $unit;
-}
-@mixin reset-pm {
-  margin: 0;
-  padding: 0;
-}
-@mixin btn($bgc, $color, $bold) {
-  background-color: $bgc;
-  color: $color;
-  border-radius: 5rem;
-  padding: 2rem 0.3rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  @if($bold == 'yes'){
-    font-weight: bolder;
-  }
-}
+@import 'button';
+@import 'config';
+@import 'utils';
 
 * {
   box-sizing: border-box;
@@ -44,24 +16,33 @@ a {
 }
 h2 {
   font-weight: bolder;
-  font-size: size(6);
+  font-size: size(5);
 }
 h3 {
   font-weight: lighter;
   font-size: size(3);
 }
 img{
-    width: 100%;
+    width: 80%;
 }
 .container {
+  
+  background-image: url(/assets/2.svg);
   background-color: white;
-  margin: 10rem;
-  width: 1228px;
+  margin: 10rem auto ;
+  width: 90%;
   padding: 5rem;
   box-shadow: 0 0 2rem 0.2rem rgba(0, 0, 0, 0.1);
+  background-size:cover;
+}
 
-  background-image: url();
-  background-size: 100% 100%;
+.rotar{
+  &:hover{
+    position: relative;
+    transform: rotate(10deg);
+    top: 2rem;
+        
+  }
 }
 ul {
   @include reset-pm();
@@ -71,7 +52,22 @@ ul {
 
   li {
     a {
-      @include btn($primary-color,$secodary-color ,'yes' );
+      @include btn($terciary-color,$fond-color ,'yes' );
+      &:hover{
+        @include btn($fond-color, $terciary-color,'no' );
+        box-shadow: $box-shadow;
+      }
     }
+    
   }
 }
+
+header{
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+}
+

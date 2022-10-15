@@ -1,0 +1,29 @@
+@import 'config';
+@mixin btn($bgc, $color, $bold) {
+    background-color: $bgc;
+    color: $color;
+    border-radius: 5rem;
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  
+    @if($bold == 'yes'){
+      font-weight: bolder;
+    }
+  }
+  
+  .btn{
+    &.btn-cta{
+      @include btn($primary-color,$secodary-color ,'yes' );
+       &:hover{
+        @include btn($secodary-color, $terciary-color,'yes' );
+        box-shadow: $box-shadow;
+      }
+    }
+    &:hover{
+      @include btn($terciary-color,$secodary-color ,'yes' );
+      box-shadow: $box-shadow;
+    }
+  }
